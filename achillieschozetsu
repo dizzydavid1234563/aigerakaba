@@ -1,0 +1,487 @@
+print("d1zzy made this script Aiger akabane from beyblade burst turbo!")
+
+-- Moves name and ult
+
+-- Moves 1 Name
+
+local player = game.Players.LocalPlayer
+
+local playerGui = player.PlayerGui
+
+local hotbar = playerGui:FindFirstChild("Hotbar")
+
+local backpack = hotbar:FindFirstChild("Backpack")
+
+local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+local baseButton = hotbarFrame:FindFirstChild("1").Base
+
+local ToolName = baseButton.ToolName
+
+
+ToolName.Text = "Achilies sword slashes"
+
+-- Moves 2 Name
+
+local player = game.Players.LocalPlayer
+
+local playerGui = player.PlayerGui
+
+local hotbar = playerGui:FindFirstChild("Hotbar")
+
+local backpack = hotbar:FindFirstChild("Backpack")
+
+local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+local baseButton = hotbarFrame:FindFirstChild("2").Base
+
+local ToolName = baseButton.ToolName
+
+
+ToolName.Text = "Dark slam"
+
+-- Moves 3 Name
+
+local player = game.Players.LocalPlayer
+
+local playerGui = player.PlayerGui
+
+local hotbar = playerGui:FindFirstChild("Hotbar")
+
+local backpack = hotbar:FindFirstChild("Backpack")
+
+local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+local baseButton = hotbarFrame:FindFirstChild("3").Base
+
+local ToolName = baseButton.ToolName
+
+
+ToolName.Text = "parlyze"
+
+-- Moves 4 Name
+
+
+local player = game.Players.LocalPlayer
+
+local playerGui = player.PlayerGui
+
+local hotbar = playerGui:FindFirstChild("Hotbar")
+
+local backpack = hotbar:FindFirstChild("Backpack")
+
+local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+local baseButton = hotbarFrame:FindFirstChild("4").Base
+
+local ToolName = baseButton.ToolName
+
+
+ToolName.Text = "Counter"
+
+
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Ult here
+
+local function findGuiAndSetText()
+
+	local screenGui = playerGui:FindFirstChild("ScreenGui")
+
+	if screenGui then
+
+		local magicHealthFrame = screenGui:FindFirstChild("MagicHealth")
+
+		if magicHealthFrame then
+
+			local textLabel = magicHealthFrame:FindFirstChild("TextLabel")
+
+			if textLabel then
+
+				textLabel.Text = "Dark Resonance"
+
+			end
+
+		end
+
+	end
+
+end
+
+
+playerGui.DescendantAdded:Connect(findGuiAndSetText)
+
+findGuiAndSetText()
+
+-- Moves
+
+-- Move 1 here
+
+local animationId = 12273188754
+
+
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:WaitForChild("Humanoid")
+
+
+local function onAnimationPlayed(animationTrack)
+
+	if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+
+		local p = game.Players.LocalPlayer
+
+		local Humanoid = p.Character:WaitForChild("Humanoid")
+
+
+		for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+
+			animTrack:Stop()
+
+		end
+
+
+		local AnimAnim = Instance.new("Animation")
+
+		AnimAnim.AnimationId = "rbxassetid://15145462680"
+
+		local Anim = Humanoid:LoadAnimation(AnimAnim)
+
+
+		local startTime = 0
+
+
+		Anim:Play(0)
+
+		Anim:AdjustSpeed(0)
+
+		Anim.TimePosition = startTime
+
+		Anim:AdjustSpeed(1)
+
+
+	end
+
+end
+
+-- Move 2 here
+
+
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+local animationId = 12296113986
+
+
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:WaitForChild("Humanoid")
+
+
+local function onAnimationPlayed(animationTrack)
+
+	if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+
+		local p = game.Players.LocalPlayer
+
+		local Humanoid = p.Character:WaitForChild("Humanoid")
+
+
+		for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+
+			animTrack:Stop()
+
+		end
+
+
+		local AnimAnim = Instance.new("Animation")
+
+		AnimAnim.AnimationId = "rbxassetid://18182425133"
+
+		local Anim = Humanoid:LoadAnimation(AnimAnim)
+
+
+		local startTime = 0
+
+
+		Anim:Play()
+
+		Anim:AdjustSpeed(0.5)
+
+		Anim.TimePosition = startTime
+
+		Anim:AdjustSpeed(1.8)
+
+
+	end
+
+end
+
+-- Move 3 here
+
+
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+local animationId = 12309835105
+
+
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:WaitForChild("Humanoid")
+
+
+local function onAnimationPlayed(animationTrack)
+
+	if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+
+		local p = game.Players.LocalPlayer
+
+		local Humanoid = p.Character:WaitForChild("Humanoid")
+
+
+		for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+
+			animTrack:Stop()
+
+		end
+
+
+		local AnimAnim = Instance.new("Animation")
+
+		AnimAnim.AnimationId = "rbxassetid://16431491215"
+
+		local Anim = Humanoid:LoadAnimation(AnimAnim)
+
+
+		local startTime = 0
+
+
+		Anim:Play()
+
+		Anim:AdjustSpeed(1)
+
+		Anim.TimePosition = startTime
+
+		Anim:AdjustSpeed(1.1)
+
+
+		delay(1.8, function()
+
+			Anim:Stop()
+
+		end)
+
+
+	end
+
+end
+
+-- Move 4 here
+
+
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+
+
+local animationId = 13603396939
+
+
+local player = game.Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:WaitForChild("Humanoid")
+
+
+local function onAnimationPlayed(animationTrack)
+
+	if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+
+		local p = game.Players.LocalPlayer
+
+		local Humanoid = p.Character:WaitForChild("Humanoid")
+
+
+		for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+
+			animTrack:Stop()
+
+		end
+
+
+		local AnimAnim = Instance.new("Animation")
+
+		AnimAnim.AnimationId = "rbxassetid://15290930205"
+
+		local Anim = Humanoid:LoadAnimation(AnimAnim)
+
+
+		local startTime = 0
+
+
+		Anim:Play()
+
+		Anim:AdjustSpeed(0)
+
+		Anim.TimePosition = startTime
+
+		Anim:AdjustSpeed(1)
+
+
+	end
+
+end
+
+player.CharacterAdded:Connect(function(newCharacter)
+
+	character = newCharacter
+
+	humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+	character.DescendantAdded:Connect(onBodyVelocityAdded)
+
+
+
+	for _, descendant in pairs(character:GetDescendants()) do
+
+		onBodyVelocityAdded(descendant)
+
+	end
+
+end)
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Wait for character to load
+if not character then
+	warn("Character not found!")
+	return
+end
+
+local rightArm = character:FindFirstChild("Right Arm")
+local leftArm = character:FindFirstChild("Left Arm")
+
+if not rightArm or not leftArm then
+	warn("Right or Left Arm not found! Ensure this is R6.")
+	return
+end
+
+-- Function to create and attach a blade with proper grip
+local function createBlade(arm, name, positionOffset, rotation)
+	local blade = Instance.new("Part")
+	blade.Name = name
+	blade.BottomSurface = Enum.SurfaceType.Smooth
+	blade.TopSurface = Enum.SurfaceType.Smooth
+	blade.Size = Vector3.new(4, 1, 2)
+	blade.Anchored = false
+	blade.CanCollide = false
+
+	-- Mesh
+	local mesh = Instance.new("SpecialMesh")
+	mesh.Scale = Vector3.new(40, 40, 50)
+	mesh.MeshId = "rbxassetid://3266423688"
+	mesh.TextureId = "rbxassetid://8095081968"
+	mesh.MeshType = Enum.MeshType.FileMesh
+	mesh.Parent = blade
+
+	-- Motor6D for attachment
+	local motor = Instance.new("Motor6D")
+	motor.Part0 = arm
+	motor.Part1 = blade
+	motor.Parent = arm
+
+	-- Adjust position & rotation
+	motor.C0 = CFrame.new(positionOffset.X, positionOffset.Y, positionOffset.Z) 
+		* CFrame.Angles(math.rad(rotation.X), math.rad(rotation.Y), math.rad(rotation.Z))
+
+	-- Parent blade to character
+	blade.Parent = character
+end
+
+-- Right Arm Blade (Held Properly)
+createBlade(
+	rightArm, 
+	"Blade of Chaos (Right)", 
+	Vector3.new(0, -1, -1),  -- Moves it into the hand
+	Vector3.new(0, 90, 0)  -- Rotates to point forward
+)
+
+-- Left Arm Blade (Mirrored Grip)
+createBlade(
+	leftArm, 
+	"Blade of Chaos (Left)", 
+	Vector3.new(0, -1, -1),  -- Moves it into the hand
+	Vector3.new(0, 90, 0)  -- Rotates to mirror the right arm
+)
+
+local Test =  game.ReplicatedStorage.Emotes.VFX.VfxMods.FS.vfx.Aura.HumanoidRootPart.Torso
+
+local test = Test:Clone()
+test.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
+
+
+for _, child in ipairs(test:GetChildren()) do
+	if child:IsA("ParticleEmitter") then
+
+		child.Color = ColorSequence.new(Color3.new(0.211765, 0, 0.635294)) -- its set to one because its vfx lolo delete if u want
+		child:Emit(1)
+		child.Enabled = true
+	end
+end
+
+--[[Garou Color Changer !DELETE IF NOT NEEDED!]]
+
+--[[LEFT ARM COLORS]]
+
+local char = game.Players.LocalPlayer.Character
+getgenv().LArmCol = char['Left Arm'].ChildAdded:Connect(function(pp)
+	if pp.Name == 'WaterPalm' then
+		for i,v in pairs(pp:WaitForChild('ConstantEmit'):GetChildren()) do
+			v.Color =
+				ColorSequence.new{ColorSequenceKeypoint.new(0.00, 
+					Color3.fromRGB(85, 0, 255)), -- Change Color (Red, Green, Blue)
+					ColorSequenceKeypoint.new(1.00, 
+						Color3.fromRGB(255, 53, 107))} -- Change Color (Red, Green, Blue)
+		end
+
+		pp:WaitForChild('WaterTrail').Color = 
+			ColorSequence.new{ColorSequenceKeypoint.new(0.00, 
+				Color3.fromRGB(136, 51, 255)), -- Change Color (Red, Green, Blue)
+				ColorSequenceKeypoint.new(1.00, 
+					Color3.fromRGB(142, 90, 255))} -- Change Color (Red, Green, Blue)
+
+	end end)
+--[[RIGHT ARM colors]]
+
+getgenv().RArmCol = char['Right Arm'].ChildAdded:Connect(function(pp)
+	if pp.Name == 'WaterPalm' then
+		for i,v in pairs(pp:WaitForChild('ConstantEmit'):GetChildren()) do
+			v.Color =
+				ColorSequence.new{ColorSequenceKeypoint.new(0.00, 
+					Color3.fromRGB(85, 0, 255)), -- Change Color (Red, Green, Blue)
+					ColorSequenceKeypoint.new(1.00, 
+						Color3.fromRGB(85, 0, 255))} -- Change Color (Red, Green, Blue)
+		end
+		pp:WaitForChild('WaterTrail').Color = 
+			ColorSequence.new{ColorSequenceKeypoint.new(0.00, 
+				Color3.fromRGB(85, 0, 255)), -- Change Color (Red, Green, Blue) 
+				ColorSequenceKeypoint.new(1.00, 
+					Color3.fromRGB(85, 0, 255))} -- Change Color (Red, Green, Blue)
+
+	end end)
+
+--[[END OF GAROU COLORS]]
