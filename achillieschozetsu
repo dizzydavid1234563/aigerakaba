@@ -480,3 +480,99 @@ pos = CFrame.new(pos.X,pos.Y,pos.Z)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
 end)
 tool.Parent = game.Players.LocalPlayer.Backpack 
+
+getgenv().Idle = game.Players.LocalPlayer.Character.Humanoid.AnimationPlayed:Connect(function(v)
+    if v.Animation.AnimationId == "rbxassetid://14516273501" then
+        local Anim = Instance.new("Animation")
+        Anim.AnimationId = "rbxassetid://102814369422840"
+        local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+        k:Play(.3)
+        k.Priority = Enum.AnimationPriority.Idle
+        k:AdjustSpeed(.6)
+        -- Loop the animation if needed
+        k.Looped = true
+
+        -- Keyframe positions (manually set to simulate keyframes 2, 3, and 4)
+        local keyframeTimes = {1, 2, 3}  -- Example keyframe times (you need to adjust this based on the animation)
+        local keyframeIndex = 1
+        local reverse = false  -- To control the direction of playback
+
+        -- Function to control the keyframe playback
+        local function controlKeyframes()
+            -- Get the current time of the animation
+            local currentTime = k.TimePosition
+
+            -- Check if we are at the target keyframe and reverse when necessary
+            if not reverse then
+                -- Move forward through keyframes
+                if currentTime >= keyframeTimes[keyframeIndex] then
+                    -- Move to the next keyframe
+                    keyframeIndex = keyframeIndex + 1
+                    if keyframeIndex > #keyframeTimes then
+                        keyframeIndex = #keyframeTimes
+                    end
+                end
+            else
+                -- Reverse through keyframes
+                if currentTime <= keyframeTimes[keyframeIndex] then
+                    -- Move to the previous keyframe
+                    keyframeIndex = keyframeIndex - 1
+                    if keyframeIndex < 1 then
+                        keyframeIndex = 1
+                    end
+                end
+            end
+
+            -- Set the time position to the keyframe time
+            k.TimePosition = keyframeTimes[keyframeIndex]
+        end
+
+        -- Function to switch between forward and reverse playback
+        local function toggleReverse()
+            reverse = not reverse
+        end
+
+        -- Set a heartbeat connection to control the keyframe playback
+        game:GetService("RunService").Heartbeat:Connect(function()
+            controlKeyframes()
+        end)
+
+        -- You can toggle the reverse whenever you want
+        toggleReverse()
+
+        -- Wait until the animation stops and stop it with a slight delay
+        v.Stopped:Wait()
+        k:Stop(.3)
+    end
+end)
+
+-- END OF SWORD AND IDLE
+
+-- Spawn Animation When Executed
+
+local p = game.Players.LocalPlayer
+local Humanoid = p.Character:WaitForChild("Humanoid")
+
+for _, animTrack in pairs(Humanoid:GetPlayingAnimationTracks()) do
+    animTrack:Stop()
+end
+
+local AnimAnim = Instance.new("Animation")
+
+AnimAnim.AnimationId = "rbxassetid://13083332742" --[[Find an Id Is Somewhere Idk What's Going On In My Life]]
+
+local Anim = Humanoid:LoadAnimation(AnimAnim)
+
+
+local startTime = 0 --[[The Start Time Bitc]]
+
+
+Anim:Play()
+
+Anim:AdjustSpeed(0.1) --[[DOES LITERALLY NOTHING]]
+
+Anim.TimePosition = startTime
+
+Anim:AdjustSpeed(0.9) --[[Speed Yeah Yeah.]]
+
+-- END IF EXECUTE ANIM
