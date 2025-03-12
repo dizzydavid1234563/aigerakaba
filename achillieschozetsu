@@ -372,61 +372,45 @@ if not character then
 	return
 end
 
-local rightArm = character:FindFirstChild("Right Arm")
-local leftArm = character:FindFirstChild("Left Arm")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local rightArm = character:FindFirstChild("Right Arm") -- R6 Right Arm
 
-if not rightArm or not leftArm then
-	warn("Right or Left Arm not found! Ensure this is R6.")
-	return
+if not rightArm then
+    warn("Right Arm not found! Ensure this is R6.")
+    return
 end
 
--- Function to create and attach a blade with proper grip
-local function createBlade(arm, name, positionOffset, rotation)
-	local blade = Instance.new("Part")
-	blade.Name = name
-	blade.BottomSurface = Enum.SurfaceType.Smooth
-	blade.TopSurface = Enum.SurfaceType.Smooth
-	blade.Size = Vector3.new(4, 1, 2)
-	blade.Anchored = false
-	blade.CanCollide = false
+-- Create the staff
+local Staff = Instance.new("Part")
+Staff.Name = "Staff"
+Staff.BottomSurface = Enum.SurfaceType.Smooth
+Staff.TopSurface = Enum.SurfaceType.Smooth
+Staff.Size = Vector3.new(4, 1, 2)
+Staff.Anchored = false -- Needs to move with arm
+Staff.CanCollide = false
 
-	-- Mesh
-	local mesh = Instance.new("SpecialMesh")
-	mesh.Scale = Vector3.new(40, 40, 50)
-	mesh.MeshId = "rbxassetid://3266423688"
-	mesh.TextureId = "rbxassetid://8095081968"
-	mesh.MeshType = Enum.MeshType.FileMesh
-	mesh.Parent = blade
+-- Mesh
+local Mesh = Instance.new("SpecialMesh")
+Mesh.Scale = Vector3.new(0.1, 0.1, 0.1)
+Mesh.MeshId = "rbxassetid://11495364982"
+Mesh.TextureId = "rbxassetid://8095081968"
+Mesh.MeshType = Enum.MeshType.FileMesh
+Mesh.Parent = Staff
 
-	-- Motor6D for attachment
-	local motor = Instance.new("Motor6D")
-	motor.Part0 = arm
-	motor.Part1 = blade
-	motor.Parent = arm
+-- Motor6D to attach staff to right arm
+local Motor = Instance.new("Motor6D")
+Motor.Part0 = rightArm
+Motor.Part1 = Staff
+Motor.Parent = rightArm
 
-	-- Adjust position & rotation
-	motor.C0 = CFrame.new(positionOffset.X, positionOffset.Y, positionOffset.Z) 
-		* CFrame.Angles(math.rad(rotation.X), math.rad(rotation.Y), math.rad(rotation.Z))
+-- Adjust position & rotation
+Motor.C0 = CFrame.new(0, -1.3, -2)* CFrame.Angles(-500, math.rad(180), 0) -- Adjust as needed
 
-	-- Parent blade to character
-	blade.Parent = character
-end
+-- Parent staff to character
+Staff.Parent = character
 
--- Right Arm Blade (Held Properly)
-createBlade(
-	rightArm, 
-	"Blade of Chaos (Right)", 
-	Vector3.new(0, -1, -1),  -- Moves it into the hand
-	Vector3.new(0, 90, 0)  -- Rotates to point forward
-)
-
--- Left Arm Blade (Mirrored Grip)
-createBlade(
-	leftArm, 
-	"Blade of Chaos (Left)", 
-	Vector3.new(0, -1, -1),  -- Moves it into the hand
-	Vector3.new(0, 90, 0)  -- Rotates to mirror the right arm
-)
+pcall(function() getgenv().Idle:Disconnect() end)
 
 local Test =  game.ReplicatedStorage.Emotes.VFX.VfxMods.FS.vfx.Aura.HumanoidRootPart.Torso
 
