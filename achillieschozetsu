@@ -482,9 +482,9 @@ end)
 tool.Parent = game.Players.LocalPlayer.Backpack 
 
 getgenv().Idle = game.Players.LocalPlayer.Character.Humanoid.AnimationPlayed:Connect(function(v)
-    if v.Animation.AnimationId == "rbxassetid://14516273501" then
+    if v.Animation.AnimationId == "rbxassetid://16746843881" then
         local Anim = Instance.new("Animation")
-        Anim.AnimationId = "rbxassetid://102814369422840"
+        Anim.AnimationId = "rbxassetid://16746843881"
         local k = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
         k:Play(.3)
         k.Priority = Enum.AnimationPriority.Idle
